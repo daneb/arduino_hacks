@@ -1,7 +1,7 @@
 require 'artoo'
 
 # Circuit and schematic here: http://arduino.cc/en/Tutorial/Blink
-connection :firmata, :adaptor => :firmata, :port => '/dev/cu.usbmodem1421' #linux
+connection :firmata, :adaptor => :firmata, :port => '/dev/cu.usbmodem1411' #linux
 # gort scan usb
 # /dev/cu.usbmodem1421
 # connection :firmata, :adaptor => :firmata, :port => '127.0.0.1:8023'
