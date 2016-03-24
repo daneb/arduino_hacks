@@ -10,8 +10,8 @@ device :led, :driver => :led, :pin => 10
 
 work do
 		puts "Very slow fading light"
-		fadeOn(1,5)
-		fadeOff(1,5)
+		fadeOn(5)
+		fadeOff(5)
 end
 
 def fadeOn(increment)
