@@ -6,14 +6,24 @@ connection :arduino, :adaptor => :firmata, :port => '/dev/ttyACM0' #linux
 # /dev/cu.usbmodem1421
 # connection :firmata, :adaptor => :firmata, :port => '127.0.0.1:8023'
 device :board, :driver => :device_info
-device :led, :driver => :led, :pin => 13
+device :led, :driver => :led, :pin => 10
 
 work do
-  puts "Firmware name: #{board.firmware_name}"
-  puts "Firmata version: #{board.version}"
+		puts "Very slow fading light"
+		fadeOn(1,5)
+		fadeOff(1,5)
+end
 
-  every 1.second do
-    puts "Hello World"
-    led.toggle
-  end
+def fadeOn(increment)
+	1.step(255, increment) do |i|
+		led.brightness i
+		sleep(0.2)
+	end
+end
+
+def fadeOff(decrement)
+	255.step(1, -decrement) do |i|
+		led.brightness i
+		sleep(0.2)
+	end
 end
